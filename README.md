@@ -18,7 +18,7 @@ The system is made up of modules, each module responds to a model (mvc architect
 Operation Modules:
 
 - Client Module: Contains the identification information of the Companies.
-- Contact Model: Contains the contact information of each company.
+- Contact Module: Contains the contact information of each company.
 - Products Module: Contains the information of the products offered to the market.
 - Executive Module: Contains the contact information of the seller.
 - Orders / Sales Module: Contains the information of the sales made to each client.
