@@ -10,6 +10,27 @@ Notes:
 
 - Development subject to changes and improvements 
 
+## System Explanation
+
+
+The system is made up of modules, each module responds to a model (mvc architecture), they are detailed below:
+
+Operation Modules:
+
+- Client Module: Contains the identification information of the Companies.
+- Contact Model: Contains the contact information of each company.
+- Products Module: Contains the information of the products offered to the market.
+- Executive Module: Contains the contact information of the seller.
+- Orders / Sales Module: Contains the information of the sales made to each client.
+
+Administration Modules:
+
+- Users Module: Contains the information of the users of the system.
+
+## System Operation
+
+Professional products and services offered to the market must be uploaded, as well as the company's sales executives. Each sale made will require prior registration of the company and its contact. 
+
 ## Project Management
 
 [Trello](https://trello.com/b/uY9LMbNt/systemx)
