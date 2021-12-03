@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+  resources :clients
   get 'home/index'
   root 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -1,0 +1,33 @@
+<div class="container">
+  <%= render 'clients/form' %>
+</div>
+
+<h3 class="text-center">Listado de Clientes</h3>
+
+<table class="table table-striped">
+    <thead id="tabla">
+        <tr>
+            <th>ID</th>
+            <th>RUT</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Tipo</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody id="clients">
+        <% @clients.each do |c| %>
+            <tr>
+                <td><%= c.id %></td>
+                <td><%= c.rut %></td>
+                <td><%= c.name %></td>
+                <td><%= c.address %></td>
+                <td><%= c.phone %></td>
+                <td><%= c.category %></td>
+                <td><%= link_to 'Editar', edit_client_path(c) %></td>
+                <td><%= link_to 'Eliminar', client_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el cliente?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

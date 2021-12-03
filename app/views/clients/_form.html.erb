@@ -1,0 +1,45 @@
+<%= form_with(model: @client, remote: true) do |f| %>
+    <% if @client.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2 class= "text-danger font-weight-bold">Atención! Existe <%= pluralize(client.errors.count, "error") %> el cual no permite guardar el Cliente</h2>
+            <ul>
+                <% @client.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <h3>Ingreso Cliente</h3>
+    
+    <div class="form-group">
+        <%= f.label :rut %>
+        <%= f.text_field :rut, autofocus: true, placeholder: 'Ingrese el RUT del Cliente', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :name, placeholder: 'Ingrese el Nombre del Cliente', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :direccion %>
+        <%= f.text_field :address, placeholder: 'Ingrese la Direccion del Cliente', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :telefono %>
+        <%= f.text_field :phone, placeholder: 'Ingrese el Telefono del Cliente', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :tipo %>
+        <%= f.select :category, [:Comercial, :Educacional, :Gubernamental], {}, class: "form-control" %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit "Guardar Cliente", class:'btn btn-success border-dark mb-2'%>
+    </div>
+    <button class="btn btn-danger btn-md active"><%= link_to 'Volver al Dashbord', root_path, class:'text-white'%></button>
+
+<% end %>
