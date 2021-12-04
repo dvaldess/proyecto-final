@@ -1,0 +1,46 @@
+<%= form_with(model: @contact, remote: true) do |f| %>
+    <% if @contact.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2 class= "text-danger font-weight-bold">Atención! Existe <%= pluralize(contact.errors.count, "error") %> el cual no permite guardar el Contacto</h2>
+            <ul>
+                <% @contact.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <h3>Ingreso Contacto</h3>
+    
+    <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :name, autofocus: true, placeholder: 'Ingrese el nombre del Contacto', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: 'Ingrese el E-Mail del Contacto', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :telefono %>
+        <%= f.text_field :phone, placeholder: 'Ingrese el Telefono del Contacto', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :cargo %>
+        <%= f.select :title, [:Gerente, :SubGerente, :Jefe, :Ingeniero, :Tecnico, :Administrativo], {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :empresa %>
+        <br>
+        <%= f.collection_select :client_id, @clients, :id, :name%>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit "Guardar Contacto", class:'btn btn-success border-dark mb-2'%>
+    </div>
+    <button class="btn btn-danger btn-md active"><%= link_to 'Volver al Dashbord', root_path, class:'text-white'%></button>
+
+<% end %>

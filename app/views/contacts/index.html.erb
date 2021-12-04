@@ -1,0 +1,31 @@
+<div class="container">
+  <%= render 'contacts/form' %>
+</div>
+
+<h3 class="text-center">Listado de Contactos</h3>
+
+<table class="table table-striped">
+    <thead id="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>E-Mail</th>
+            <th>Telefono</th>
+            <th>Cargo</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody id="contacts">
+        <% @contacts.each do |c| %>
+            <tr>
+                <td><%= c.id %></td>
+                <td><%= c.name %></td>
+                <td><%= c.email %></td>
+                <td><%= c.phone %></td>
+                <td><%= c.title %></td>
+                <td><%= link_to 'Editar', edit_contact_path(c) %></td>
+                <td><%= link_to 'Eliminar', contact_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Contacto?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
