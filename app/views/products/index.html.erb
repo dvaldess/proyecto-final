@@ -1,2 +1,32 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+  <%= render 'products/form' %>
+</div>
+
+<h3 class="text-center">Listado de Productos</h3>
+
+<table class="table table-striped">
+    <thead id="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Categoria</th>
+            <th>Moneda</th>
+            <th>Precio</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody id="products">
+        <% @products.each do |p| %>
+            <tr>
+                <td><%= p.id %></td>
+                <td><%= p.name %></td>
+                <td><%= p.description %></td>
+                <td><%= p.currency %></td>
+                <td><%= p.price %></td>
+                <td><%= link_to 'Editar', edit_product_path(c) %></td>
+                <td><%= link_to 'Eliminar', product_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Producto?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

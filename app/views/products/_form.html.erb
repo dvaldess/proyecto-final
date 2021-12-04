@@ -1,0 +1,46 @@
+<%= form_with(model: @product, remote: true) do |f| %>
+    <% if @product.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2 class= "text-danger font-weight-bold">Atención! Existe <%= pluralize(product.errors.count, "error") %> el cual no permite guardar el Producto</h2>
+            <ul>
+                <% @product.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <h3>Ingreso Producto</h3>
+
+    <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :name, autofocus: true, placeholder: 'Ingrese el nombre del Producto', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :descripcion %>
+        <%= f.text_field :description, placeholder: 'Ingrese descripcion del Producto', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :tipo %>
+        <%= f.select :category, [:Servicio, :Software, :Hardware,], {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :moneda %>
+        <%= f.select :currency, [:Peso, :USD, :UF,], {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :precio %>
+        <%= f.text_field :price, placeholder: 'Ingrese el precio del Producto', class: "form-control" %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit "Guardar Producto", class:'btn btn-success border-dark mb-2'%>
+    </div>
+
+    <button class="btn btn-danger btn-md active"><%= link_to 'Volver al Dashbord', root_path, class:'text-white'%></button>
+
+<% end %>
