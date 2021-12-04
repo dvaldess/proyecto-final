@@ -1,2 +1,12 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1 class="category-title text-center">Dashboard</h1>
+
+<div class="container">
+    <button class="btn btn-primary btn-lg btn-block active"><%= link_to 'Revisar las Clientes', clients_path, class:'text-white'%></button>
+    <br>
+    <button class="btn btn-warning btn-lg btn-block active"><%= link_to 'Revisar los Contactos Cliente', contacts_path, class:'text-white' %></button>
+    <br>
+    <button class="btn btn-success btn-lg btn-block active"><%= link_to 'Revisar las Ventas', orders_path, class:'text-white' %></button>
+    <br>
+    <button class="btn btn-success btn-lg btn-block active"><%= link_to 'Revisar los Productos', products_path, class:'text-white' %></button>
+    <h2 class="category-title text-center py-2">Gráficos</h2>
+</div>
