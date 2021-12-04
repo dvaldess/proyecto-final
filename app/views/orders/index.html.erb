@@ -1,0 +1,29 @@
+<div class="container">
+  <%= render 'orders/form' %>
+</div>
+
+<h3 class="text-center">Listado de Ventas</h3>
+
+<table class="table table-striped">
+    <thead id="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Fecha Venta</th>
+            <th>Observación</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody id="contacts">
+        <% @orders.each do |o| %>
+            <tr>
+                <td><%= o.id %></td>
+                <td><%= o.category %></td>
+                <td><%= o.date %></td>
+                <td><%= o.description %></td>
+                <td><%= link_to 'Editar', edit_order_path(c) %></td>
+                <td><%= link_to 'Eliminar', order_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Contacto?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
