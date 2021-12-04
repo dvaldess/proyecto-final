@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: 1
+  date: 2021-12-04
+  description: MyText
+  client: one
+  user: one
+
+two:
+  category: 1
+  date: 2021-12-04
+  description: MyText
+  client: two
+  user: two
