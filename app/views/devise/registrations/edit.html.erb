@@ -10,9 +10,10 @@
       <strong>Email:</strong>
          <%= current_user.email %>
     </p>
-
-
-
+        <p>
+      <strong>Cargo:</strong>
+         <%= current_user.title %>
+    </p>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -27,12 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :"Confirmar Password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"Cargo" %><br />
+    <%= f.label :"Confirmar Password" %> <i>(Dejar en blanco si no necesita cambiar)</i><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -42,7 +38,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :password_actual %> <i>(Necesitas ingresar tu password para actualizar tu telefono)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
