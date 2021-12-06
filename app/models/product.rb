@@ -1,3 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :order
+  enum category: [:Servicio, :Software, :Hardware]
+  enum currency: [:Peso, :USD, :UF,]
+  belongs_to :order, optional: true
 end

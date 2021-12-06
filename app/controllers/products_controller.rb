@@ -50,4 +50,10 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :category, :currency, :price, :order_id)
+  end
+
 end

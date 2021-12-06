@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all.order(created_at: :desc)
     @order = Order.new
+    @clients = Client.all
     @products = Product.all
   end
 

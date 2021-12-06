@@ -21,8 +21,8 @@
                 <td><%= o.category %></td>
                 <td><%= o.date %></td>
                 <td><%= o.description %></td>
-                <td><%= link_to 'Editar', edit_order_path(c) %></td>
-                <td><%= link_to 'Eliminar', order_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Contacto?' } %></td>
+                <td><%= link_to 'Editar', edit_order_path(0) %></td>
+                <td><%= link_to 'Eliminar', order_path(0), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Contacto?' } %></td>
             </tr>
         <% end %>
     </tbody>

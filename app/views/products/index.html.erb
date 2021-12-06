@@ -22,10 +22,11 @@
                 <td><%= p.id %></td>
                 <td><%= p.name %></td>
                 <td><%= p.description %></td>
+                <td><%= p.category %></td>
                 <td><%= p.currency %></td>
                 <td><%= p.price %></td>
-                <td><%= link_to 'Editar', edit_product_path(c) %></td>
-                <td><%= link_to 'Eliminar', product_path(c), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Producto?' } %></td>
+                <td><%= link_to 'Editar', edit_product_path(p) %></td>
+                <td><%= link_to 'Eliminar', product_path(p), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Producto?' } %></td>
             </tr>
         <% end %>
     </tbody>
