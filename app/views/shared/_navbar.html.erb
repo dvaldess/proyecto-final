@@ -7,10 +7,10 @@
         <ul class="navbar-nav ml-auto mt-2">
         <% if user_signed_in? %>
             <li class="nav-item pt-2 pr-4">
-                <q class="text-white">Bienvenid@, <%= link_to current_user.username, user_session_path(current_user.id), class:'text-white'  %></q>
+                <%= link_to 'Actualizar Mis Datos', dashboard_index_path, class:'nav-link text-white' %>
             </li>
             <li class="nav-item active mr-3">
-                <%= image_tag current_user.avatar, class: "user-photo rounded-circle", style:"border: 2px solid red" %>
+                <%= link_to 'Ir al Dashboard', dashboard_index_path, class:'nav-link text-white' %>
             </li>
             <li class="nav-item btn btn-danger border-dark mr-3 mb-2">
                 <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete, class:'text-white' %>

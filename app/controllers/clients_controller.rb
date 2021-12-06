@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  load_and_authorize_resource
   def index
     @clients = Client.all.order(created_at: :desc)
     @client = Client.new

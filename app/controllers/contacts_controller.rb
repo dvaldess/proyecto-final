@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  load_and_authorize_resource
   def index
     @contacts = Contact.all.order(created_at: :desc)
     @contact = Contact.new

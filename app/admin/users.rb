@@ -5,8 +5,11 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :admin, :status
-  #
+  #permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :phone, :admin, :status
+  
+  def permitted_params
+    params.permit(:user => [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :phone, :admin, :status])
+  end
   # or
   #
   # permit_params do
