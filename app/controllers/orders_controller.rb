@@ -1,13 +1,22 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @orders = Order.all.order(created_at: :desc)
+    if user.admin?
+      @orders = Order.all.order(created_at: :desc)
+    else
+      @orders = Order.where(user_id: current_user.id)
+    end
     @order = Order.new
     @clients = Client.all
     @products = Product.all
   end
 
   def show
-    @orders = Order.all
+    if user.admin?
+      @orders = Order.all.order(created_at: :desc)
+    else
+      @orders = Order.where(user_id: current_user.id)
+    end
   end
 
   def new
