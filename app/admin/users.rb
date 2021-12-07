@@ -7,8 +7,10 @@ ActiveAdmin.register User do
   #
   #permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :phone, :admin, :status
   
+  permit_params :phone, :title, :admin, :status
+
   def permitted_params
-    params.permit(:user => [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :phone, :admin, :status])
+    params.permit(:user => [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :phone, :title, :admin, :status])
   end
   # or
   #

@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_003257) do
     t.integer "title"
     t.integer "phone"
     t.string "name"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

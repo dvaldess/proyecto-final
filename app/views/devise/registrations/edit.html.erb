@@ -10,9 +10,13 @@
       <strong>Email:</strong>
          <%= current_user.email %>
     </p>
-        <p>
+    <p>
       <strong>Cargo:</strong>
          <%= current_user.title %>
+    </p>
+    <p>
+      <strong>Celular:</strong>
+         <%= current_user.phone %>
     </p>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

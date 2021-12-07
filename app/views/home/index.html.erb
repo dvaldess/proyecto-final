@@ -1,7 +1,7 @@
 <div class="container">
     <ul class="navbar-nav ml-auto mt-2">
-    <% if user_signed_in? %>
-        <h1>Bienvenid@</h1>
+    <% if @user.status? %>
+        <h1>Bienvenid@, <%= current_user.name %> </h1>
         <h3>Menu Principal</h3>
                 <%= link_to 'Actualizar Mis Datos', edit_user_registration_path, class:'nav-link text-dark' %>
         </li>
@@ -14,12 +14,7 @@
         <h4>Tipos de Ventas</h4>
         <%= bar_chart Order.group(:category).sum(:price) %>
     <% else %>
-        <li class="nav-item pr-2 mr-2 btn btn-primary border-dark">
-            <%= link_to 'Registrate', new_user_registration_path, class:'text-white' %>
-        </li>
-        <li class="nav-item pr-2 mr-2 btn btn-success border-dark">
-            <%= link_to 'Iniciar Sesion', new_user_session_path, class:'text-white' %>
-        </li>
+        <h1>no tiene acceso aún, solicitar autorizacion a su respectiva jefatura o al administrador del sistema</h1>
     <% end %>
     </ul>
 </div>

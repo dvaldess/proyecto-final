@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
-    if user.admin?
+    @user = User.find(current_user.id)
+    if @user.admin?
       @orders = Order.all.order(created_at: :desc)
     else
       @orders = Order.where(user_id: current_user.id)
