@@ -33,6 +33,8 @@ Professional products and services offered to the market must be uploaded, as we
 
 ## Project Management
 
+The administration of the project and the control of activities of the application, are being registered in: 
+
 [Trello](https://trello.com/b/uY9LMbNt/systemx)
 
 ## Development Tools
@@ -71,5 +73,8 @@ gem "chartkick", "~> 3.4"
 gem "groupdate", "~> 5.2"
 
 # Gem for Pagination
-gem 'kaminari' 
+gem 'kaminari'
+
+# Gem for Roles
+gem 'cancancan'
 ```
