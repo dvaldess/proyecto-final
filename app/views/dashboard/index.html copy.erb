@@ -1,0 +1,17 @@
+<% if @user.status? %>
+    <h1 class="category-title text-center">Dashboard</h1>
+    <div class="container">
+    <button class="btn btn-primary btn-lg btn-block active"><%= link_to 'Revisar las Clientes', clients_path, class:'text-white'%></button>
+    <br>
+    <button class="btn btn-warning btn-lg btn-block active"><%= link_to 'Revisar los Contactos Cliente', contacts_path, class:'text-white' %></button>
+    <br>
+    <button class="btn btn-success btn-lg btn-block active"><%= link_to 'Revisar las Ventas', orders_path, class:'text-white' %></button>
+    <br>
+    <button class="btn btn-success btn-lg btn-block active"><%= link_to 'Revisar los Productos', products_path, class:'text-white' %></button>
+    <h2 class="category-title text-center py-2">Gráficos</h2>
+    <h4>Ventas por dia</h4>
+    <%= line_chart Order.group_by_day(:date).count %>
+</div>
+<% else %>
+    <h1>no tiene acceso aún, solicitar autorizacion a su respectiva jefatura o al administrador del sistema</h1>
+<% end %>

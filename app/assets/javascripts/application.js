@@ -18,4 +18,6 @@
 //= require turbolinks
 //= require chartkick
 //= require Chart.bundle
+//= require jquery.easing.min.js
+//= require sb-admin-2.min.js
 //= require_tree .

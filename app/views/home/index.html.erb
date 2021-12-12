@@ -14,7 +14,12 @@
         <h4>Tipos de Ventas</h4>
         <%= bar_chart Order.group(:category).sum(:price) %>
     <% else %>
-        <h1>no tiene acceso aún, solicitar autorizacion a su respectiva jefatura o al administrador del sistema</h1>
+        <li class="nav-item pr-2 mr-2 btn btn-primary border-dark">
+            <%= link_to 'Registrate', new_user_registration_path, class:'text-white' %>
+        </li>
+        <li class="nav-item pr-2 mr-2 btn btn-success border-dark">
+            <%= link_to 'Iniciar Sesion', new_user_session_path, class:'text-white' %>
+        </li>
     <% end %>
     </ul>
 </div>
