@@ -1,25 +1,19 @@
-<div class="container">
-    <ul class="navbar-nav ml-auto mt-2">
-    <% if @user.status? %>
-        <h1>Bienvenid@, <%= current_user.name %> </h1>
-        <h3>Menu Principal</h3>
-                <%= link_to 'Actualizar Mis Datos', edit_user_registration_path, class:'nav-link text-dark' %>
-        </li>
-        <li class="nav-item pt-2 pr-4">
-                <%= link_to 'Ir al Dashboard', dashboard_index_path, class:'nav-link text-dark' %>
-        </li>
-        <h3>Mis Estadisticas</h3>
-        <h4>Ventas por dia</h4>
-        <%= line_chart Order.group_by_day(:date).count %>
-        <h4>Tipos de Ventas</h4>
-        <%= bar_chart Order.group(:category).sum(:price) %>
+<div class="box-central row justify-content-md-center">
+    <% if current_user.nil? %>
+        <div class="box-central row justify-content-md-center"> 
+            <div class="col-md-auto text-center box-1 p-4">
+                    <%= image_tag "x.png"%>
+                <h1 class="mt-4 font-weight-bold">Bienvenido a SystemX</h1>
+                <h5>> Plataforma para el Control de Ventas <</h5>
+                <li class="nav-item btn btn-primary border-dark mr-3 mb-2">
+                    <%= link_to 'Registrar', new_user_registration_path, class:'text-white' %>
+                </li>
+                <li class="nav-item btn btn-success border-dark mr-3 mb-2">
+                    <%= link_to 'Ingresar', new_user_session_path, class:'text-white' %>
+                </li>  
+            </div>
+        </div>
     <% else %>
-        <li class="nav-item pr-2 mr-2 btn btn-primary border-dark">
-            <%= link_to 'Registrate', new_user_registration_path, class:'text-white' %>
-        </li>
-        <li class="nav-item pr-2 mr-2 btn btn-success border-dark">
-            <%= link_to 'Iniciar Sesion', new_user_session_path, class:'text-white' %>
-        </li>
+        <%= render 'shared/home' %>
     <% end %>
-    </ul>
 </div>
