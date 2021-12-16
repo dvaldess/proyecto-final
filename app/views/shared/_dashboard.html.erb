@@ -1,9 +1,8 @@
 <div class="mx-4" id="page-top">
-    <% if current_user.admin? %>
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar btn-dark sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="">System</div>
@@ -23,25 +22,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
             <div class="sidebar-card d-none d-lg-flex">
-                <%= link_to 'Modulo Clientes', clients_path, class:'text-white'%>
-            </div>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <%= link_to 'Modulo Productos', products_path, class:'text-white' %>
-            </div>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <div class="sidebar-card d-none d-lg-flex">
                 <%= link_to 'Modulo Ventas', orders_path, class:'text-white' %>
-            </div>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <%= link_to 'Admin Usuarios', admin_root_path, class:'text-white' %>
             </div>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -88,97 +69,17 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
-                    <!-- Content Row Indicadores -->
-                    <h5 class="text-gray-800 mb-3">Indicadores Economicos</h5>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card bg-danger text-white shadow">
-                                <div class="text-xs text-center font-weight-bold text-white text-uppercase">Valor UF</div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                <path d="M12 3v3m0 12v3" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="card-body ml-0 pl-0">
-                                        <div id="uf"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card bg-success text-white shadow">
-                                <div class="text-xs text-center font-weight-bold text-white text-uppercase">Valor Dolar</div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                <path d="M12 3v3m0 12v3" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="card-body ml-0 pl-0">
-                                        <div id="dolar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card bg-primary text-white shadow">
-                                <div class="text-xs text-center font-weight-bold text-white text-uppercase">Valor Dolar Intercambio</div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                <path d="M12 3v3m0 12v3" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="card-body ml-0 pl-0">
-                                        <div id="dolar-intercambio"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="text-xs text-center font-weight-bold text-white text-uppercase">Valor UTM</div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                <path d="M12 3v3m0 12v3" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="card-body ml-0 pl-0">
-                                        <div id="utm"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Content Row -->
-                    <h5 class="text-gray-800 mb-3">Indicadores Personales</h5>
                     <div class="row">
-                        <!-- Card Example -->
+                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ventas Mensual</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -193,7 +94,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ventas Anual</div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                         </div>
                                         <div class="col-auto">
@@ -247,7 +149,6 @@
                         </div>
                     </div>
                     <!-- Content Row -->
-                    <h5 class="text-gray-800 mb-3">Indicadores Generales</h5>
                     <div class="row">
                         <!-- Area Chart -->
                         <div class="col-xl-12">
@@ -272,10 +173,10 @@
             </div>
             <!-- End of Main Content -->
             <!-- Footer -->
-            <footer class="bg-white">
+            <footer class="bg-white mb-2">
                 <div class="container">
                     <div class="copyright text-center">
-                        <span>Copyright &copy; <%= Time.now.year %> SystemX. Todos los derechos reservados.</span>
+                        <span>Copyright &copy; <%= Time.now.year %> SystemX. Todos los derechos reservados</span>
                     </div>
                 </div>
             </footer>
@@ -283,7 +184,4 @@
         </div>
         <!-- End of Content Wrapper -->
     </div>
-    <% else %>
-        <%= render 'shared/dashboard' %>
-    <% end %>
 </div>

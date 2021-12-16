@@ -1,29 +1,95 @@
-<div class="container">
-  <%= render 'orders/form' %>
+<div class="mx-4" id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav btn-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="">System</div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x font-weight-bold" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0 mb-3">
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <%= link_to 'Dashbord', dashboard_index_path, class:'text-white'%>
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <%= link_to 'Modulo Ventas', orders_path, class:'text-white' %>
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                      <circle cx="10" cy="10" r="7" />
+                                      <line x1="21" y1="21" x2="15" y2="15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item mt-2">
+                            Hola, <%= current_user.name%> <%= current_user.surname %>
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item btn btn-danger border-dark">
+                            <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete, class:'text-white' %>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="container">
+                        <%= render 'orders/form' %>
+                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-xl-12">
+                            <div class="card shadow mb-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="bg-white">
+                <div class="container">
+                    <div class="copyright text-center">
+                        <span>Copyright &copy; <%= Time.now.year %> SystemX. Todos los derechos reservados</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
 </div>
-
-<h3 class="text-center">Listado de Ventas</h3>
-
-<table class="table table-striped">
-    <thead id="tabla">
-        <tr>
-            <th>ID</th>
-            <th>Tipo</th>
-            <th>Fecha Venta</th>
-            <th>Observación</th>
-            <th colspan="2"></th>
-        </tr>
-    </thead>
-    <tbody id="contacts">
-        <% @orders.each do |o| %>
-            <tr>
-                <td><%= o.id %></td>
-                <td><%= o.category %></td>
-                <td><%= o.date %></td>
-                <td><%= o.description %></td>
-                <td><%= link_to 'Editar', edit_order_path(0) %></td>
-                <td><%= link_to 'Eliminar', order_path(0), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el Contacto?' } %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
