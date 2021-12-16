@@ -22,11 +22,10 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.new(order_params)
     respond_to do |format|
       if @order.save!
         format.html { redirect_to orders_path, notice: 'La venta fue creada correctamente.' }
