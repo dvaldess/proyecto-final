@@ -70,10 +70,33 @@
                     </div>
                     <!-- Content Row -->
                     <div class="row">
-                        <!-- Area Chart -->
+                        <!-- Area -->
                         <div class="col-xl-12">
+                            <h3 class="text-center">Listado de Ventas</h3>
                             <div class="card shadow mb-4">
-
+                                <table id="myTable" class="table" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo Venta</th>
+                                            <th>Fecha Venta</th>
+                                            <th>Precio Venta</th>
+                                            <th>Cliente</th>
+                                            <th>Producto</th>
+                                            <th>Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orders">
+                                        <% @orders.each do |o| %>
+                                            <tr>
+                                                <td><%= o.category %></td>
+                                                <td><%= o.date %></td>
+                                                <td><%= o.price %></td>
+                                                <td><%= @clients.find(o.client_id).name %></td>
+                                                <td><%= link_to 'Editar', edit_order_path(0) %></td>
+                                            </tr>
+                                        <% end %>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
