@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  #Añadir helper para modificar la vista del precio en la vista
+  include ActionView::Helpers::NumberHelper
+
   def index
     @user = User.find(current_user.id)
     if @user.admin?
