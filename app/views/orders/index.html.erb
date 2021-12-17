@@ -77,22 +77,23 @@
                                 <table id="myTable" class="table" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Tipo Venta</th>
                                             <th>Fecha Venta</th>
                                             <th>Precio Venta</th>
                                             <th>Cliente</th>
                                             <th>Producto</th>
-                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody id="orders">
                                         <% @orders.each do |o| %>
                                             <tr>
+                                                <td><%= o.id %></td>
                                                 <td><%= o.category %></td>
                                                 <td><%= o.date %></td>
                                                 <td><%= o.price %></td>
                                                 <td><%= @clients.find(o.client_id).name %></td>
-                                                <td><%= link_to 'Editar', edit_order_path(0) %></td>
+                                                <td><%= @products.find(o.product_id).name %></td>
                                             </tr>
                                         <% end %>
                                     </tbody>

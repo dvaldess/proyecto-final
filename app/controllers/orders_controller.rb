@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    #associate current user to order 
     @order = current_user.orders.new(order_params)
     respond_to do |format|
       if @order.save!

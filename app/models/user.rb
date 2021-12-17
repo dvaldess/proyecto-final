@@ -3,5 +3,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   enum title: [:"Gerente General", :"Gerente Comercial", :"SubGerente Comercial", :"Jefe Comercial", :"Ejecutivo de Ventas"]
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-  has_many :orders
+  has_many :orders, dependent: :destroy
 end
