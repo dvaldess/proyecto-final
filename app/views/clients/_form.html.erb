@@ -9,37 +9,32 @@
             </ul>
         </div>
     <% end %>
-    
-    <h3>Ingreso Cliente</h3>
-    
-    <div class="form-group">
-        <%= f.label :rut %>
-        <%= f.text_field :rut, autofocus: true, placeholder: 'Ingrese el RUT del Cliente', class: "form-control" %>
+    <h3 class="font-weight-bold pb-2">Ingrese Cliente</h3>
+    <div class="form-group row">
+        <div class="col-3">
+            <%= f.label :"tipo cliente", class: "text-capitalize" %>
+            <%= f.select :category, [:Comercial, :Educacional, :Gubernamental], {}, class: "form-control" %>
+        </div>
+        <div class="col-3">
+            <%= f.label :rut %>
+            <%= f.text_field :rut, autofocus: true, placeholder: 'Ingrese el RUT del Cliente', class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.label :nombre %>
+            <%= f.text_field :name, placeholder: 'Ingrese el Nombre del Cliente', class: "form-control" %>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :nombre %>
-        <%= f.text_field :name, placeholder: 'Ingrese el Nombre del Cliente', class: "form-control" %>
+        <div class="form-group row">
+        <div class="col-3">
+            <%= f.label :telefono %>
+            <%= f.text_field :phone, placeholder: 'Ingrese el Telefono del Cliente', class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.label :direccion %>
+            <%= f.text_field :address, placeholder: 'Ingrese la Direccion del Cliente', class: "form-control" %>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :direccion %>
-        <%= f.text_field :address, placeholder: 'Ingrese la Direccion del Cliente', class: "form-control" %>
+    <div class='actions'>
+        <%= f.submit "Guardar Cliente", class:'btn btn-success border-dark mt-1'%>
     </div>
-
-    <div class="form-group">
-        <%= f.label :telefono %>
-        <%= f.text_field :phone, placeholder: 'Ingrese el Telefono del Cliente', class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :tipo %>
-        <%= f.select :category, [:Comercial, :Educacional, :Gubernamental], {}, class: "form-control" %>
-    </div>
-
-    <div class = 'actions'>
-        <%= f.submit "Guardar Cliente", class:'btn btn-success border-dark mb-2'%>
-    </div>
-    <button class="btn btn-danger btn-md active"><%= link_to 'Volver al Dashbord', dashboard_index_path, class:'text-white'%></button>
-
 <% end %>

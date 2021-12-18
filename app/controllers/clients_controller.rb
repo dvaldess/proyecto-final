@@ -1,12 +1,12 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @clients = Client.all.order(created_at: :desc)
+    @clients = Client.all.order(created_at: :desc).page params[:page]
     @client = Client.new
   end
 
   def show
-    @clients = Client.all
+    @clients = Client.all.order(created_at: :desc).page params[:page]
   end
 
   def new

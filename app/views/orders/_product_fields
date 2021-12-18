@@ -1,5 +1,0 @@
-<div class="form-group">
-    <%= f.label :product %>
-    <%= f.collection_select(:product_ids, @products, :id, :name) %>
-    <% link_to_remove_association 'Remover Producto', f %>
-</div>

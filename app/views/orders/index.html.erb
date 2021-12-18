@@ -34,22 +34,6 @@
             <div id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                      <circle cx="10" cy="10" r="7" />
-                                      <line x1="21" y1="21" x2="15" y2="15" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
@@ -72,7 +56,7 @@
                     <div class="row">
                         <!-- Area -->
                         <div class="col-xl-12">
-                            <h3 class="text-center">Listado de Ventas</h3>
+                            <h3 class="text-center font-weight-bold pb-2">Listado de Ventas</h3>
                             <div class="card shadow mb-4">
                                 <table id="myTable" class="table" cellspacing="0" width="100%">
                                     <thead>
@@ -83,7 +67,7 @@
                                             <th>Precio</th>
                                             <th>Cliente</th>
                                             <th>Producto</th>
-                                            <th colspan="2">Opciones</th>
+                                            <th colspan="2">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody id="orders">
@@ -127,12 +111,12 @@
                                         <% end %>
                                     </tbody>
                                 </table>
+                            </div>
                                 <div class="actions">
                                     <% paginate @orders %>
-                                    <%= link_to_previous_page @orders, 'Pagina Anterior',class:"btn btn-info" %>
-                                    <%= link_to_next_page @orders, 'Mostrar Más Tweets', class:"btn btn-info" %>
+                                    <%= link_to_previous_page @orders, 'Pagina Anterior', class:"btn btn-info" %>
+                                    <%= link_to_next_page @orders, 'Mostrar Más Ventas', class:"btn btn-info" %>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>

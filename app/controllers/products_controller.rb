@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @products = Product.all.order(created_at: :desc)
+    @products = Product.all.order(created_at: :desc).page params[:page]
     @product = Product.new
   end
 
   def show
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc).page params[:page]
   end
 
   def new

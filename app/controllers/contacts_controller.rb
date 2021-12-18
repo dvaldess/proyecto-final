@@ -1,17 +1,18 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @contacts = Contact.all.order(created_at: :desc)
+    @contacts = Contact.all.order(created_at: :desc).page params[:page]
     @contact = Contact.new
     @clients = Client.all
   end
 
   def show
-    @contacts = Contact.all
+    @contacts = Contact.all.order(created_at: :desc).page params[:page]
   end
 
   def new
     @contact = Contact.new
+    @clients = Client.all
   end
 
   def create

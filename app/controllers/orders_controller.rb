@@ -2,13 +2,12 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   #Añadir helper para modificar la vista del precio en la vista
   include ActionView::Helpers::NumberHelper
-
   def index
     @user = User.find(current_user.id)
     if @user.admin?
-      @orders = Order.all.order(created_at: :desc)
+      @orders = Order.all.order(created_at: :desc).page params[:page]
     else
-      @orders = Order.where(user_id: current_user.id)
+      @orders = Order.where(user_id: current_user.id).order(created_at: :desc).page params[:page]
     end
     @order = Order.new
     @clients = Client.all
@@ -17,9 +16,9 @@ class OrdersController < ApplicationController
 
   def show
     if user.admin?
-      @orders = Order.all.order(created_at: :desc)
+      @orders = Order.all.order(created_at: :desc).page params[:page]
     else
-      @orders = Order.where(user_id: current_user.id)
+      @orders = Order.where(user_id: current_user.id).order(created_at: :desc).page params[:page]
     end
   end
 

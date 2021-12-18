@@ -9,38 +9,34 @@
             </ul>
         </div>
     <% end %>
-    
-    <h3>Ingreso Producto</h3>
-
-    <div class="form-group">
-        <%= f.label :nombre %>
-        <%= f.text_field :name, autofocus: true, placeholder: 'Ingrese el nombre del Producto', class: "form-control" %>
+    <h3 class="font-weight-bold pb-2">Ingrese Producto</h3>
+    <div class="form-group row">
+        <%= f.label :nombre, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+            <%= f.text_field :name, autofocus: true, placeholder: 'Ingrese nombre del Producto', class: "form-control" %>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :descripcion %>
-        <%= f.text_field :description, placeholder: 'Ingrese descripcion del Producto', class: "form-control" %>
+    <div class="form-group row">
+        <%= f.label :descripcion, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+            <%= f.text_field :description, placeholder: 'Ingrese descripcion del Producto', class: "form-control" %>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :tipo %>
-        <%= f.select :category, [:Servicio, :Software, :Hardware], {}, class: "form-control" %>
+    <div class="form-group row">
+        <div class="col">
+            <%= f.label :"tipo producto", class: "text-capitalize" %>
+            <%= f.select :category, [:Servicio, :Software, :Hardware], {}, class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.label :moneda %>
+            <%= f.select :currency, [:Peso, :USD, :UF,], {}, class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.label :precio %>
+            <%= f.number_field :price, placeholder: 'Ingrese precio del Producto', class: "form-control" %>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :moneda %>
-        <%= f.select :currency, [:Peso, :USD, :UF,], {}, class: "form-control" %>
+    <div class='actions'>
+        <%= f.submit "Guardar Producto", class:'btn btn-success border-dark mt-1'%>
     </div>
-
-    <div class="form-group">
-        <%= f.label :precio %>
-        <%= f.text_field :price, placeholder: 'Ingrese el precio del Producto', class: "form-control" %>
-    </div>
-
-    <div class = 'actions'>
-        <%= f.submit "Guardar Producto", class:'btn btn-success border-dark mb-2'%>
-    </div>
-
-    <button class="btn btn-danger btn-md active"><%= link_to 'Volver al Dashbord', dashboard_index_path, class:'text-white'%></button>
-
 <% end %>
