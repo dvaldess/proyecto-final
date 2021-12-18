@@ -27,17 +27,13 @@
                                             <div class="custom-control custom-checkbox small">
                                               <% if devise_mapping.rememberable? %>
                                                 <%= f.check_box :remember_me, class: "form-check-input custom-control-input"%>
-                                                <%= f.label :remember_me, class:"custom-control-label" %>
+                                                <%= f.label :"recordar sesión", class:"custom-control-label text-capitalize" %>
                                               <% end %>
                                             </div>
                                         </div>
                                           <div class="actions">
                                             <%= f.submit "Iniciar Sesión", class: "form-control btn btn-primary pb-4" %>
                                           </div>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Inicia Sesión con GitHub
-                                        </a>
                                     <hr>
                                     <div class="text-center">
                                         <%= render "devise/shared/links" %>
