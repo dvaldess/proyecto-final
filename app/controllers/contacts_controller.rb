@@ -30,13 +30,14 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find(params[:id])
+    @clients = Client.all
   end
 
   def update
     @contact = Contact.find(params[:id])
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'El contacto fue actualizado correctamente.' }
+        format.html { redirect_to contacts_path, notice: 'El contacto fue actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }

@@ -23,12 +23,15 @@
             <div class="col-md-auto text-center box-1 p-4">
                 <%= image_tag "x.png"%>
                 <h1 class="mt-4 font-weight-bold">Bienvenido a SystemX</h1>
-                <h5>> Plataforma para el Control de Ventas <</h5>
+                <h5>Plataforma para el Control de Ventas</h5>
                 <br class="text-dark">
-                <p class="font-italic font-weight-bold">*Nota: Si ha llegado a este punto, debes solicitar autorización para poder interacturar en el sistema.</p>
+                <p class="font-italic font-weight-bold">*Nota: Debes solicitar autorización para poder interacturar en el sistema.</p>
                     <li class="nav-item btn btn-success border-dark mr-3 mb-2">
                         <%= link_to 'Actualizar Mis Datos', edit_user_registration_path, class:'text-white' %>
                     </li>
+                    <li class="nav-item btn btn-primary border-dark mr-3 mb-2">
+                        <%= link_to 'Ir al Dashboard', dashboard_index_path, class:'text-white' %>
+                    </li>  
                     <li class="nav-item btn btn-danger border-dark mr-3 mb-2">
                         <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete, class:'text-white' %>
                     </li>

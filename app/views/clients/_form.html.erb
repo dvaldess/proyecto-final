@@ -9,7 +9,6 @@
             </ul>
         </div>
     <% end %>
-    <h3 class="font-weight-bold pb-2">Ingrese Cliente</h3>
     <div class="form-group row">
         <div class="col-3">
             <%= f.label :"tipo cliente", class: "text-capitalize" %>
@@ -17,7 +16,7 @@
         </div>
         <div class="col-3">
             <%= f.label :rut %>
-            <%= f.text_field :rut, autofocus: true, placeholder: 'Ingrese el RUT del Cliente', class: "form-control" %>
+            <%= f.text_field :rut, placeholder: 'Ingrese el RUT del Cliente', class: "form-control" %>
         </div>
         <div class="col">
             <%= f.label :nombre %>

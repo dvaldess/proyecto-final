@@ -49,9 +49,12 @@
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="container">
-                        <%= render 'orders/form' %>
-                    </div>
+                    <% if current_user.status? %>
+                    <h3 class="font-weight-bold pb-2">Ingrese Venta</h3>
+                        <div class="container">
+                            <%= render 'orders/form' %>
+                        </div>
+                    <% end %>
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Area -->
@@ -67,7 +70,7 @@
                                             <th>Precio</th>
                                             <th>Cliente</th>
                                             <th>Producto</th>
-                                            <th colspan="2">Acciones</th>
+                                            <th colspan="2" class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody id="orders">
@@ -105,6 +108,23 @@
                                                               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                                                             </svg>
                                                         <% end %>
+                                                    </td>
+                                                <% else %>
+                                                    <td>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-exclamation" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <circle cx="9" cy="7" r="4" />
+                                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                                        <line x1="19" y1="7" x2="19" y2="10" />
+                                                        <line x1="19" y1="14" x2="19" y2="14.01" />
+                                                        </svg>
+                                                    </td>
+                                                    <td>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <line x1="18" y1="6" x2="6" y2="18" />
+                                                        <line x1="6" y1="6" x2="18" y2="18" />
+                                                        </svg>
                                                     </td>
                                                 <% end%>
                                             </tr>

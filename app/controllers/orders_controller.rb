@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @user = User.find(current_user.id)
     if user.admin?
       @orders = Order.all.order(created_at: :desc).page params[:page]
     else
@@ -47,14 +48,17 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @user = User.find(current_user.id)
     @order = Order.find(params[:id])
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to orders_path, notice: 'La venta fue actualizada correctamente.' }
-        format.json { render :show, status: :ok, location: @order }
-      else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+    if user.admin? || @order.user_id == current_user.id
+      respond_to do |format|
+        if @order.update(order_params)
+          format.html { redirect_to orders_path, notice: 'La venta fue actualizada correctamente.' }
+          format.json { render :show, status: :ok, location: @order }
+        else
+          format.html { render :edit }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

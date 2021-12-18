@@ -23,7 +23,7 @@ class Ability
           can :read, Product
           can :read, Client
         end
-      elsex
+      else
         can :read, :sign_up
       end
     #

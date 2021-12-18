@@ -1,3 +1,73 @@
-<div class="container">
-  <%= render 'products/form', product: @product %>
+<div class="mx-4" id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav btn-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="">System</div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x font-weight-bold" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0 mb-3">
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <%= link_to 'Dashbord', dashboard_index_path, class:'text-white'%>
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <%= link_to 'Modulo Productos', products_path, class:'text-white' %>
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item mt-2">
+                            Hola, <%= current_user.name%> <%= current_user.surname %>
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item btn btn-danger border-dark">
+                            <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete, class:'text-white' %>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <% if current_user.admin? && current_user.status? %>
+                    <h3 class="font-weight-bold pb-2">Modificar Producto</h3>
+                        <div class="container">
+                            <%= render 'products/form' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="bg-white">
+                <div class="container">
+                    <div class="copyright text-center">
+                        <span>Copyright &copy; <%= Time.now.year %> SystemX. Todos los derechos reservados</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
 </div>
