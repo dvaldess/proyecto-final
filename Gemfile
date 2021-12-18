@@ -85,3 +85,6 @@ gem "groupdate", "~> 5.2"
 # Pagination gem
 gem 'kaminari' 
 gem "cancancan", "~> 3.3"
+
+# Nested Forms 
+gem 'cocoon'

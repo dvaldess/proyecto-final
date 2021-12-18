@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @products = Product.all
+    @order.products.build
   end
 
   def create
@@ -42,6 +44,7 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    @products = Product.all
   end
 
   def update
