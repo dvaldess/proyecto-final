@@ -50,11 +50,12 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'El contacto fue eliminado correctamente.' }
+      format.html { redirect_to contacts_path, notice: 'El contacto fue eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
-
+  
+private
   def contact_params
     params.require(:contact).permit(:name, :email, :phone, :title, :client_id)
   end

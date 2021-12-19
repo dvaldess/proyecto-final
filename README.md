@@ -22,6 +22,7 @@ Operation Modules:
 - Products Module: Contains the information of the products offered to the market.
 - Executive Module: Contains the contact information of the seller.
 - Orders / Sales Module: Contains the information of the sales made to each client.
+- Users Module: Contains information about user administration. 
 
 Administration Modules:
 
@@ -30,6 +31,36 @@ Administration Modules:
 ## System Operation
 
 Professional products and services offered to the market must be uploaded, as well as the company's sales executives. Each sale made will require prior registration of the company and its contact. 
+
+## Test System
+
+To test the system, use the following URL and accounts:
+
+URL: https://thesystemx.herokuapp.com/
+
+- To use the system
+
+Type: Administrator User
+Note: access to all modules
+email: dvaldes@systemx.cl
+password: 123456
+
+Type: Non administrator User
+Note: limited access to modules
+email: valeria@systemx.cl
+password: "123456"
+
+Type: Registered user
+Note: Not authorized, Can only view 
+email: isidora@systemx.cl
+password: 123456
+
+- To manage users 
+
+Type: Administrator User
+email: admin@systemx.cl
+password: 123123
+
 
 ## Project Management
 

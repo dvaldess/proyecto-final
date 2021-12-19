@@ -67,15 +67,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'La venta fue eliminada correctamente.' }
+      format.html { redirect_to orders_path, notice: 'La venta fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end
-end
 
 private
   def order_params
     params.require(:order).permit(:category, :date, :description, :price, :client_id, :user_id, :product_id)
   end
-
+end
 end
