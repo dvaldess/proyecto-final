@@ -48,7 +48,7 @@ password: 123456
 Type: Non administrator User
 Note: limited access to modules
 email: valeria@systemx.cl
-password: "123456"
+password: 123456
 
 Type: Registered user
 Note: Not authorized, Can only view 
